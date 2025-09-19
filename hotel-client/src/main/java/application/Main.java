@@ -48,7 +48,7 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/homePage.fxml"));
             Application.setUserAgentStylesheet("/style/primer-dark.css");
-            primaryStage.setTitle("Inventory Management System");
+            primaryStage.setTitle("Hotel Registration System");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
             connectToServer();

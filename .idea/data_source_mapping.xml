@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/da5b1879-5573-4383-bc37-48b571febe3c/console.sql" value="da5b1879-5573-4383-bc37-48b571febe3c" />
+    <file url="file://$PROJECT_DIR$/hotel-server/src/main/java/model/DbConnection.java" value="da5b1879-5573-4383-bc37-48b571febe3c" />
   </component>
 </project>

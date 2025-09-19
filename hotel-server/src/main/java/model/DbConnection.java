@@ -192,7 +192,7 @@ public class DbConnection {
         StringBuilder allBookings = new StringBuilder();
         boolean hasResults = executeQuery(sql, rs -> {
             while (rs.next()) {
-                if (allBookings.length() > 0) {
+                if (!allBookings.isEmpty()) {
                     allBookings.append("; "); // Separator between different bookings
                 }
                 int bookId = rs.getInt("Book_ID");
@@ -203,7 +203,7 @@ public class DbConnection {
 
                 allBookings.append(String.format("%d %s %s %s %d", bookId, guestName, roomType, roomIds, noOfDays));
             }
-            return allBookings.length() > 0; // Return true if we have results
+            return !allBookings.isEmpty(); // Return true if we have results
         });
 
         return hasResults ? allBookings.toString() : "NO_BOOKINGS";
@@ -217,7 +217,7 @@ public class DbConnection {
         StringBuilder allRooms = new StringBuilder();
         boolean hasResults = executeQuery(sql, rs -> {
             while (rs.next()) {
-                if (allRooms.length() > 0) {
+                if (!allRooms.isEmpty()) {
                     allRooms.append("; ");
                 }
                 int roomId = rs.getInt("Room_ID");
@@ -225,7 +225,7 @@ public class DbConnection {
 
                 allRooms.append(String.format("%d %s", roomId, roomType));
             }
-            return allRooms.length() > 0;
+            return !allRooms.isEmpty();
         });
 
         return hasResults ? allRooms.toString() : "NO_ROOMS";
@@ -246,7 +246,7 @@ public class DbConnection {
         String sqlUpdateAvailable = "UPDATE Room SET Is_Available = 1 WHERE Room_ID IN (SELECT Room_ID FROM Reservation_Room WHERE Book_ID = ?)";
 
         try {
-            conn = this.getConnection();
+            conn = getConnection();
             conn.setAutoCommit(false); // Start transaction
 
             // Update Room availability
@@ -320,7 +320,7 @@ public class DbConnection {
 
     // Executes an update query
     public int executeUpdate(String sql, Object... parameters) {
-        try (PreparedStatement pstmt = this.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement pstmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             for (int i = 0; i < parameters.length; i++) {
                 pstmt.setObject(i + 1, parameters[i]);
             }
