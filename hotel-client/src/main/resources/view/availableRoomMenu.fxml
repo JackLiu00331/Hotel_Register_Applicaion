@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.availableRoomMenu">
+    <children>
+        <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ImageView fitHeight="700.0" fitWidth="550.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../image/background-booking.jpg" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER" prefHeight="614.0" prefWidth="500.0" GridPane.columnIndex="1">
+                    <children>
+                        <Label stylesheets="@../style/primer-dark.css" text="Hotel Reservation System">
+                            <styleClass>
+                                <String fx:value="title-1" />
+                                <String fx:value="accent" />
+                            </styleClass>
+                            <padding>
+                                <Insets bottom="10.0" top="20.0" />
+                            </padding>
+                        </Label>
+                        <HBox prefHeight="30.0" prefWidth="550.0" spacing="20.0">
+                            <children>
+                                <Label styleClass="title-4" stylesheets="@../style/primer-dark.css" text="No of Available rooms:">
+                                    <padding>
+                                        <Insets bottom="10.0" />
+                                    </padding>
+                                </Label>
+                                <Label fx:id="noOfRoomLabel" layoutX="10.0" layoutY="10.0" prefHeight="23.0" prefWidth="86.0" styleClass="title-4" stylesheets="@../style/primer-dark.css" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="roomTable" prefHeight="606.0" prefWidth="550.0">
+                            <columns>
+                                <TableColumn fx:id="roomNumColumn" prefWidth="285.59998166561127" text="Room No." />
+                                <TableColumn fx:id="roomTypeColumn" prefWidth="263.9999084472656" text="Room Type" />
+                            </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                            <children>
+                                <Button layoutX="309.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleCheckAction" stylesheets="@../style/primer-dark.css" text="Check">
+                                    <styleClass>
+                                        <String fx:value="large" />
+                                        <String fx:value="rounded" />
+                                        <String fx:value="accent" />
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackAction" stylesheets="@../style/primer-dark.css" text="Back">
+                                    <styleClass>
+                                        <String fx:value="large" />
+                                        <String fx:value="rounded" />
+                                        <String fx:value="danger" />
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
